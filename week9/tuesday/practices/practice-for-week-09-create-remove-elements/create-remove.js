@@ -1,44 +1,74 @@
-/****************************** ADD DOG BUTTON ******************************/
+// Making buttons interactive
+
+// Add dog button
 const add = document.getElementById("add");
 add.addEventListener("click", async () => {
-    try {
-        const res = await fetch("https://dog.ceo/api/breeds/image/random")
-        const data = await res.json();
+  try {
+    const res = await fetch("https://dog.ceo/api/breeds/image/random");
+    const data = await res.json();
 
-        const url = data.message; // URL of new dog image
+    // URL of new dog image
+    const url = data.message;
+    // Get breed (Hint: Parse from URL)
+    // const breed = url.split('/')[4];
+    let breed = url.split("/");
+    console.log("this is the url from breed ", breed);
+    // breed = breed[breed.length - 2];
 
-        /*--------------- Get breed (Hint: Parse from URL) ---------------- */
-        // Your code here
+    // const dog = `<li><figure><img src=${url}><figcaption>${breed}</figcaption></figure></li>`
 
-        /*------------ Create new dog card with the url above ------------- */
-        /* (use the HTML structure for the current dog image in the index.html
-            file to create a new image with the url) */
-        // Your code here
+    // Create element to inject
+    // const newDog = document.createElement("li");
 
-        /* Add the new dog card as a child to the ul in the .gallery element */
-        // Your code here
+    // const newFigure = document.createElement("figure");
 
-    } catch (e) {
-        console.log("Couldn't fetch dog :(")
-    }
+    // const newImg = document.createElement("img");
+    // newImg.src = url;
+
+    // const newCaption = document.createElement("figcaption");
+    // newCaption.innerText = breed;
+
+    // newFigure.appendChild(newImg);
+    // newFigure.appendChild(newCaption);
+
+    // newDog.appendChild(newFigure);
+
+    // // Inject element into correct location
+    // const ul = document.getElementsByTagName("ul")[0];
+    // ul.appendChild(newDog);
+  } catch (e) {
+    console.log("Couldn't fetch dog :(");
+  }
 });
 
-/************************** REMOVE FIRST DOG BUTTON **************************/
+// Remove first dog button
 const removeFirst = document.getElementById("remove-first");
 removeFirst.addEventListener("click", () => {
-    /*-------------------- Select the first dog card --------------------- */
-    // Your code here
+  // Select first dog
+  const firstDog = document.querySelector("li");
 
-    /*-------------------- Remove the first dog card --------------------- */
-    // Your code here
+  // Remove
+  if (firstDog) {
+    firstDog.remove();
+  } else {
+    console.log("No dogs left!! :(");
+  }
 });
 
-/************************** REMOVE LAST DOG BUTTON ***************************/
+// Remove last dog button
 const removeLast = document.getElementById("remove-last");
 removeLast.addEventListener("click", () => {
-    /*-------------------- Select the last dog card ----------------------- */
-    // Your code here
+  // Select last dog
+  const allDogs = document.querySelectorAll("li");
+  let lastDog;
+  if (allDogs.length > 0) {
+    lastDog = allDogs[allDogs.length - 1];
+  }
 
-    /*-------------------- Remove the last dog card ----------------------- */
-    // Your code here
+  // Remove
+  if (lastDog) {
+    lastDog.remove();
+  } else {
+    console.log("No dogs left!! :(");
+  }
 });
