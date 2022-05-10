@@ -7,5 +7,6 @@ export default () => {
   const divChildElements = div.children; // HTMLCollection [span]
   const helloWorld = div.innerText; // Hello World! Yes!    <-- NOT Hello World!
   const span = divChildElements[0]; // <span>Yes!</span>
-  // debugger
+  // console.log("div children ", divChildElements);
+  // debugger;
 };
