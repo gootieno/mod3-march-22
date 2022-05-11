@@ -22,9 +22,12 @@ add.addEventListener("click", async () => {
 
     const newFigure = document.createElement("figure");
 
+    newFigure.style.width = "200px";
+
     const newImg = document.createElement("img");
     console.log("new image ", newImg);
     newImg.src = url;
+    // newImg.style.width = "200px";
     // const anotherImg = document.createElement("img");
     // console.log("new image with src", anotherImg);
 
