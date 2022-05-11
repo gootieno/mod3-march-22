@@ -15,17 +15,17 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  redInput.addEventListener("input", changeRed);
+  //   redInput.addEventListener("input", changeRed);
 
-  //   redInput.addEventListener("input", (event) => {
-  //     console.log("input event!");
-  //     let value = e.target.value.trim().toLowerCase();
-  //     if (value === "red") {
-  //       redInput.style.backgroundColor = "red";
-  //     } else {
-  //       redInput.style.backgroundColor = "";
-  //     }
-  //   });
+  redInput.addEventListener("input", (e) => {
+    console.log("input event!");
+    let value = e.target.value.trim().toLowerCase();
+    if (value === "red") {
+      redInput.style.backgroundColor = "red";
+    } else {
+      redInput.style.backgroundColor = "";
+    }
+  });
 
   // PART 2
   const addItem = document.getElementById("add-item");
@@ -55,7 +55,10 @@ window.addEventListener("DOMContentLoaded", () => {
   // PART 4
   const removeListeners = document.getElementById("remove-listeners");
   removeListeners.addEventListener("click", () => {
-    redInput.removeEventListener("input", changeRed);
+    console.log("fired");
+    redInput.removeEventListener("input", (e) => {
+      redInput.style.backgroundColor = "";
+    });
     addItem.removeEventListener("click", addLi);
     colorSelect.removeEventListener("change", changeColor);
   });
