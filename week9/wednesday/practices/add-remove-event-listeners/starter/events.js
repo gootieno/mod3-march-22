@@ -1,7 +1,7 @@
 // Create your event listeners here
 window.addEventListener("DOMContentLoaded", () => {
   // PART 0
-  alert("DOM LOADED");
+  //   alert("DOM LOADED");
 
   // PART 1
   const redInput = document.getElementById("red-input");
@@ -16,6 +16,16 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   redInput.addEventListener("input", changeRed);
+
+  //   redInput.addEventListener("input", (event) => {
+  //     console.log("input event!");
+  //     let value = e.target.value.trim().toLowerCase();
+  //     if (value === "red") {
+  //       redInput.style.backgroundColor = "red";
+  //     } else {
+  //       redInput.style.backgroundColor = "";
+  //     }
+  //   });
 
   // PART 2
   const addItem = document.getElementById("add-item");
@@ -44,7 +54,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // PART 4
   const removeListeners = document.getElementById("remove-listeners");
-  removeListeners.addEventListener("click", (e) => {
+  removeListeners.addEventListener("click", () => {
     redInput.removeEventListener("input", changeRed);
     addItem.removeEventListener("click", addLi);
     colorSelect.removeEventListener("change", changeColor);
