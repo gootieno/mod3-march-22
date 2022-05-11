@@ -1,4 +1,4 @@
-li {
-    /* Add some styles to list elements */
+li[data-type="drinks"] {
+  /* Add some styles to list elements */
+  background-color: red;
 }
-
